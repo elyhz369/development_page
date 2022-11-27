@@ -1,0 +1,21 @@
+.ArtItems{
+	margin: 20px;
+	text-align: center;
+}
+.button_add{
+	/* width: 120px;
+	margin-left: 32%; */
+	cursor: pointer;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+	text-decoration: underline;
+}
+.button_rem{
+	/* width: 120px;
+	margin-left: 32%; */
+	cursor: pointer;
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 20px;
+	text-decoration: underline;
+	color: red;
+}

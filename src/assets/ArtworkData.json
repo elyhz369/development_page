@@ -1,0 +1,98 @@
+[
+    {
+        "id": 1,
+        "name": "ebb",
+        "price": 9.99,
+        "type": "B&W",
+        "content": "other",
+        "image": "images/ebb.png"
+    },
+    {
+        "id": 2,
+        "name": "mbf",
+        "price": 9.99,
+        "type": "B&W",
+        "content": "animal",
+        "image": "images/mbf.png"
+    },
+    {
+        "id": 3,
+        "name": "freedom",
+        "price": 9.99,
+        "type": "B&W",
+        "content": "animal",
+        "image": "images/freedom.png"
+    },
+    {
+        "id": 4,
+        "name": "untitled",
+        "price": 9.99,
+        "type": "B&W",
+        "content": "animal",
+        "image": "images/untitled.png"
+    },
+    {
+        "id": 5,
+        "name": "sparks",
+        "price": 6.99,
+        "type": "color",
+        "content": "other",
+        "image": "images/sparks.png"
+    },
+    {
+        "id": 6,
+        "name": "red",
+        "price": 6.99,
+        "type": "color",
+        "content": "portrait",
+        "image": "images/red.png"
+    },
+    {
+        "id": 7,
+        "name": "irregular",
+        "price": 6.99,
+        "type": "color",
+        "content": "other",
+        "image": "images/irregular.png"
+    },
+    {
+        "id": 8,
+        "name": "loop",
+        "price": 6.99,
+        "type": "color",
+        "content": "other",
+        "image": "images/loop.png"
+    },
+    {
+        "id": 9,
+        "name": "concert",
+        "price": 14.99,
+        "type": "color",
+        "content": "portrait",
+        "image": "images/concert.png"
+    },
+    {
+        "id": 10,
+        "name": "compliance",
+        "price": 14.99,
+        "type": "color",
+        "content": "other",
+        "image": "images/compliance.png"
+    },
+    {
+        "id": 11,
+        "name": "cat",
+        "price": 14.99,
+        "type": "color",
+        "content": "animal",
+        "image": "images/cat.png"
+    },
+    {
+        "id": 12,
+        "name": "portrait",
+        "price": 14.99,
+        "type": "color",
+        "content": "portrait",
+        "image": "images/portrait.png"
+    }
+    ]
