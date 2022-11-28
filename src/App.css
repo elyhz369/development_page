@@ -1,5 +1,69 @@
+body{
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: 'Courier New', Courier, monospace;
+}
 
+h1{
+  margin: 0%;
+  font-size: 300%;
+}
 
+h2{
+  font-weight: lighter;
+  font-style: italic;
+}
+
+h3{
+  font-weight: lighter;
+  font-size: 20px;
+}
+
+.description{
+  position:absolute;
+  top: 0px;
+  right:40px;
+  text-align: right;
+}
+
+.total{
+  position:absolute;
+  top: 120px;
+  right:40px;
+  color:white;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: #000;
+  line-height: 0%;
+}
+
+.selection_box{
+  display:flex;
+  flex-direction: column;
+  width: 600px;
+	border: 1px #000 solid;
+	padding: 10px;
+	font-size: 26px;
+}
+
+.selection_sub{
+  margin-right: 30px;
+  display:flex;
+  flex-direction: row;
+}
+
+.selection_each{
+  margin-right: 50px;
+  width: max-content;
+}
+
+.products{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: auto;
+}
 
 
 
