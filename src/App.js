@@ -117,7 +117,6 @@ function App() {
 
   function filter(styleFilter, contentFilter) {
 
-    // call a function that applies filter + sorting (based on the updated state variables)
     const filteredProducts = ArtworkData.filter(
       (item) => {
 
