@@ -6,20 +6,22 @@ import { useEffect, useState } from 'react';
 
 ArtworkData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
+  // item.inCart = 0;
 });
 
 function App() {
 
-  const [names, setNames] = useState([]);
+  // const [names, setNames] = useState([]);
   const [cart, setCart] = useState([]);
+  //make sure that it checks 'default' when first enters the page
   const [sortBy, setSortBy] = useState('id');
   const [query, setQuery] = useState([]);
   const [activeStyleFilters, setActiveStyleFilers] = useState([]);
   const [activeContentFilters, setActiveContentFilers] = useState([]);
-  const [displayProducts, setDisplayProducts] = useState(ArtworkData)
+  const [displayProducts, setDisplayProducts] = useState(ArtworkData);
 
   function addToCart(item) {
-    const newCart = [...cart, item]
+    const newCart = [...cart, item];
     setCart(newCart);
 
     // item.inCart = item.inCart===1?0:1;
@@ -36,8 +38,8 @@ function App() {
   }
 
   function removeFromCart(item) {
-    const newCart = [...cart]
-    newCart.splice(newCart.indexOf(item), 1)
+    const newCart = [...cart];
+    newCart.splice(newCart.indexOf(item), 1);
     setCart(newCart);
   }
 
@@ -49,10 +51,15 @@ function App() {
     return total;
   }
 
-  function compare(num) {
-    console.log(num)
-    return function (a, b) {
+  function resetAll() {
+    setActiveContentFilers([]);
+    setActiveStyleFilers([]);
+    setSortBy('id');
+    selectFilter(null, true);
+  }
 
+  function compare(num) {
+    return function (a, b) {
       return a[num] - b[num];
     }
   }
@@ -70,11 +77,11 @@ function App() {
     //   setNames(current => [...arr]);
     //   setSortBy(current => "Price");
     // }
-    const arr = sort(event.target.value, ArtworkData)
+    const arr = sort(event.target.value, filter(activeStyleFilters, activeContentFilters));
 
-    setNames([...arr]);
+    // setNames([...arr]);
     setSortBy(event.target.value);
-    setDisplayProducts(arr)
+    setDisplayProducts(arr);
   }
 
   function sort(sortBy, items) {
@@ -84,55 +91,31 @@ function App() {
     return arr;
   }
 
-  function filterItems(art) {
-    var arr = ArtworkData;
-    var arr2 = [];
+  // function filterItems(art) {
+  //   var arr = ArtworkData;
+  //   var arr2 = [];
 
-    if (query.includes('color') || query.includes('B&W')) {
-      for (var i = 0; i < arr.length; i++) {
-        if (query.includes(arr[i].type)) {
-          arr2.push(arr[i]);
-        }
-      }
-    }
-    else if (query.includes('animal') || query.includes('portrait') || query.includes('other')) {
-      for (var i = 0; i < arr.length; i++) {
-        if (query.includes(arr[i].content)) {
-          arr2.push(arr[i]);
-        }
-      }
-    }
+  //   if (query.includes('color') || query.includes('B&W')) {
+  //     for (var i = 0; i < arr.length; i++) {
+  //       if (query.includes(arr[i].type)) {
+  //         arr2.push(arr[i]);
+  //       }
+  //     }
+  //   }
+  //   else if (query.includes('animal') || query.includes('portrait') || query.includes('other')) {
+  //     for (var i = 0; i < arr.length; i++) {
+  //       if (query.includes(arr[i].content)) {
+  //         arr2.push(arr[i]);
+  //       }
+  //     }
+  //   }
 
-    setNames(current => [...arr2]);
-    setQuery(current => [...arr2]);
-  }
+  //   setNames(current => [...arr2]);
+  //   setQuery(current => [...arr2]);
 
-  function selectFilter(event) {
-    // update filter state variable
-    const { name, value } = event.target;
+  // }
 
-    // let newActiveFilters = [...activeFilters]
-    // if (activeFilters.includes(event.target.value)) {
-    //   newActiveFilters.splice(newActiveFilters.indexOf(event.target.value), 1);
-    // } else
-    //   newActiveFilters.push(event.target.value);
-    let styleFilter = [...activeStyleFilters]
-    let contentFilter = [...activeContentFilters]
-    if (name === 'style') {
-
-      if (styleFilter.includes(value)) {
-        styleFilter.splice(styleFilter.indexOf(value), 1);
-      } else
-        styleFilter.push(value);
-      setActiveStyleFilers(styleFilter);
-    } else if (name === 'content') {
-
-      if (contentFilter.includes(value)) {
-        contentFilter.splice(contentFilter.indexOf(value), 1);
-      } else
-        contentFilter.push(value);
-      setActiveContentFilers(contentFilter);
-    }
+  function filter(styleFilter, contentFilter) {
 
     // call a function that applies filter + sorting (based on the updated state variables)
     const filteredProducts = ArtworkData.filter(
@@ -151,8 +134,43 @@ function App() {
       }
     )
 
+    return filteredProducts;
+  }
 
-    const sortedProducts = sort(sortBy, filteredProducts)
+  function selectFilter(event, reset = false) {
+    // update filter state variable
+    if (reset) {
+      setDisplayProducts(ArtworkData)
+      return;
+    }
+    const { name, value } = event.target;
+
+    // let newActiveFilters = [...activeFilters]
+    // if (activeFilters.includes(event.target.value)) {
+    //   newActiveFilters.splice(newActiveFilters.indexOf(event.target.value), 1);
+    // } else
+    //   newActiveFilters.push(event.target.value);
+    let styleFilter = [...activeStyleFilters];
+    let contentFilter = [...activeContentFilters];
+    if (name === 'style') {
+
+      if (styleFilter.includes(value)) {
+        styleFilter.splice(styleFilter.indexOf(value), 1);
+      } else
+        styleFilter.push(value);
+      setActiveStyleFilers(styleFilter);
+    } else if (name === 'content') {
+
+      if (contentFilter.includes(value)) {
+        contentFilter.splice(contentFilter.indexOf(value), 1);
+      } else
+        contentFilter.push(value);
+      setActiveContentFilers(contentFilter);
+    }
+
+
+
+    const sortedProducts = sort(sortBy, filter(styleFilter, contentFilter))
 
     setDisplayProducts(sortedProducts)
 
@@ -193,7 +211,7 @@ function App() {
         <div className="selection_sub">
           <h3><u>Sort by:</u></h3>
           <div className="selection_each">
-            <label style={{ display: 'flex' }}><input checked={sortBy === 'id'} onChange={sortItems}  type="radio" value="id" name='sort' /> <h3>Default</h3> </label>
+            <label style={{ display: 'flex' }}><input checked={sortBy === 'id'} onChange={sortItems} type="radio" value="id" name='sort' /> <h3>Default</h3> </label>
           </div>
           <div className="selection_each">
             <label style={{ display: 'flex' }}><input checked={sortBy === 'price'} onChange={sortItems} type="radio" value="price" name='sort' /> <h3>Price (low to high)</h3> </label>
@@ -220,6 +238,8 @@ function App() {
             <label style={{ display: 'flex' }}><input checked={activeContentFilters.includes('other')} onChange={selectFilter} type="checkbox" value="other" name='content' /> <h3>Other</h3> </label>
           </div>
         </div>
+
+        <button onClick={() => resetAll()}>RESET</button>
 
       </div>
       <div className="products">
