@@ -29,7 +29,7 @@ h3{
 
 .total{
   position:absolute;
-  top: 120px;
+  top: 200px;
   right:40px;
   color:white;
   padding-left: 10px;
@@ -41,7 +41,7 @@ h3{
 .selection_box{
   display:flex;
   flex-direction: column;
-  width: 600px;
+  width: 550px;
 	border: 1px #000 solid;
 	padding: 10px;
 	font-size: 26px;
@@ -54,7 +54,8 @@ h3{
 }
 
 .selection_each{
-  margin-right: 50px;
+  margin-right: 10px;
+  margin-left: 20px;
   width: max-content;
 }
 

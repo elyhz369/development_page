@@ -1,11 +1,15 @@
 import "./ArtItems.css"
 
-function ArtItems(props){
+function ArtItems({item, cart, addToCart, removeFromCart}){
+    let isInCart = false;
+    if (cart.includes(item)){
+        isInCart = true;
+    }
     return(
         <div className = "ArtItems">
-            <img src = {props.item.image} alt='image' width='310px'></img>
-            {props.item.inCart===0 && <div  className="button_add" onClick = {()=>{props.addToCart(props.item)}}>ADD TO CART</div>}
-            {props.item.inCart===1 && <div  className="button_rem" onClick = {()=>{props.addToCart(props.item)}}>REMOVE</div>}
+            <img src = {item.image} alt='image' width='310px'></img>
+            {!isInCart && <div  className="button_add" onClick = {()=>{addToCart(item)}}>ADD TO CART</div>}
+            {isInCart && <div  className="button_rem" onClick = {()=>{removeFromCart(item)}}>REMOVE</div>}
         </div>
     )
 }
