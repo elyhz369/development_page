@@ -56,9 +56,7 @@ price passed on to addToCart()
 'displayProducts' visually shows the art items. When users first enter the website its default state is set to 'ArtworkData', which means it will display items in the order it was presented in ArtworkData.json. When users sort or filter, it will visually display the new state from 'sortBy', 'activeStyleFilters', and 'activeContentFilters'.
 
 ### Credits
-Code inspiration from:
-
-Gear Up Slides, React Studio, TA hours, https://www.w3schools.com/jsref/jsref_includes.asp, https://www.w3docs.com/snippets/javascript/how-to-check-and-uncheck-checkbox-with-javascript-and-jquery.html
+Code inspiration from: Gear Up Slides, React Studio, TA hours, https://www.w3schools.com/jsref/jsref_includes.asp, https://www.w3docs.com/snippets/javascript/how-to-check-and-uncheck-checkbox-with-javascript-and-jquery.html
 
 
 Image credits:
