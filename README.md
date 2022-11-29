@@ -1,7 +1,7 @@
 # Development
 
 ### Link to Deployed Website
-https://elzyh369.github.io/development_page
+https://elyhz369.github.io/development_page/
 
 ### Goal and Value of the Application
 The goal of this app is to create an online store for my own art prints.
