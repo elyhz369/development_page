@@ -58,15 +58,7 @@ price passed on to addToCart()
 ### Credits
 Code inspiration from:
 
-Gear Up Slides
-
-React Studio
-
-TA hours
-
-https://www.w3schools.com/jsref/jsref_includes.asp
-
-https://www.w3docs.com/snippets/javascript/how-to-check-and-uncheck-checkbox-with-javascript-and-jquery.html
+Gear Up Slides, React Studio, TA hours, https://www.w3schools.com/jsref/jsref_includes.asp, https://www.w3docs.com/snippets/javascript/how-to-check-and-uncheck-checkbox-with-javascript-and-jquery.html
 
 
 Image credits:
