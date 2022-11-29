@@ -40,8 +40,18 @@ ArtItems.js is the component for each item that includes the image, name, price,
 In the App.js file, I designed multiple functions that are related to sort, filter, and cart(add/remove). The sort and filter functions together create the selection box component, and the cart functions help with the aggregator component.
 
 ### How Data is Passed Down Through Components
-artitems mapped
-price passed on to addToCart()
+The general idea: 
+
+Data and properties of each item are stored in ArtworkData.json, ArtItems.js take these information and create a reusable component for each item, including an image, price, and other properties. These items will be mapped and visually displayed in the html section in App.js.
+
+
+The attributes 'price', 'type', and 'content' are important data used throughout the main App.js file. My filter/sort related functions will judge whether a certain attribute exists and then push the item into the new array. For example, if users click on 'B&W', only artworks that includes the type 'B&W' can be pushed to the new array.
+
+
+Another example of how data is passed down through props:
+
+
+The function ArtItems() takes in the props item, cart, addToCart, removeFromCart. 'item' allows the function to read data associated with each item (e.g. price, content, etc.) The function will then check if an item is in 'cart'. If users click and add an item to cart, the button will change to remove with the function removeFromCart(). If users click and remove an item from cart, the button will change to add with the function addToCart().
 
 ### How the User Triggers State Changes
 'activeStyleFilters' is an empty array when users first enters site, when users click corresponding style filters, the state will change to an array of items that matches the value that the filter is looking for. 'activeContentFilters' has a similar idea to 'activeStyleFilters'.
